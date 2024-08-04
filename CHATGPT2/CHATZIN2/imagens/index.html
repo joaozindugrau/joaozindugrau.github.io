@@ -18,10 +18,10 @@
         .container {
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 8px;  
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             text-align: center;
         }
         h1 {
@@ -56,6 +56,7 @@
             color: #fff;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #0056b3;
@@ -69,6 +70,24 @@
             color: #333;
             font-size: 18px;
         }
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input[type="text"] {
+            flex: 1;
+            width: auto;
+            margin-right: 10px;
+            color: #333;
+        }
+        .search-bar button {
+            margin: 0;
+            background-color: #28a745;
+        }
+        .search-bar button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -76,6 +95,12 @@
         <h1>Chat Escolar</h1>
         <h2>ESTE SITE É CHAT FOCADO EM AJUDAR ESTUDANTES</h2>
         <p>ELE TEM RESPOSTAS PARA <strong>TUDO</strong> O QUE VOCÊ IMAGINAR INCLUSIVE <strong>CONTAS MATEMÁTICAS</strong></p>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Pesquisar...">
+            <button onclick="search()">Buscar</button>
+        </div>
+        
         <input type="text" id="mathInput" placeholder="Digite uma expressão matemática">
         <button onclick="calculate()">Calcular</button>
         <div id="result" class="result"></div>
@@ -92,6 +117,14 @@
                 resultElement.textContent = `Resultado: ${result}`;
             } catch (error) {
                 resultElement.textContent = 'Erro: A expressão matemática é inválida.';
+            }
+        }
+
+        function search() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                // Simples redirecionamento para uma busca no Google
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
             }
         }
     </script>
