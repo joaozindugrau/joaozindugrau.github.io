@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Escolar - Calculadora Matemática</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #007BFF, #000);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #ddd;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        p {
+            color: #ccc;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat Escolar</h1>
+        <h2>ESTE SITE É CHAT FOCADO EM AJUDAR ESTUDANTES</h2>
+        <p>ELE TEM RESPOSTAS PARA <strong>TUDO</strong> O QUE VOCÊ IMAGINAR INCLUSIVE <strong>CONTAS MATEMÁTICAS</strong></p>
+        <input type="text" id="mathInput" placeholder="Digite uma expressão matemática">
+        <button onclick="calculate()">Calcular</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const input = document.getElementById('mathInput').value;
+            const resultElement = document.getElementById('result');
+            try {
+                // Utiliza a função eval para avaliar a expressão matemática
+                // Nota: eval pode ser perigoso com entradas não confiáveis. Em um ambiente de produção, use uma alternativa mais segura.
+                const result = eval(input);
+                resultElement.textContent = `Resultado: ${result}`;
+            } catch (error) {
+                resultElement.textContent = 'Erro: A expressão matemática é inválida.';
+            }
+        }
+    </script>
+</body>
+</html>
